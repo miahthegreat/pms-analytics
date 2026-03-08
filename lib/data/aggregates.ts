@@ -108,3 +108,40 @@ export function getRevenueByMonth(year: number) {
     revenue: value,
   }));
 }
+
+// Expenses by category (YTD) for pie chart
+export function getExpensesByCategory(year: number, throughMonth?: number) {
+  const months = throughMonth != null ? Array.from({ length: throughMonth }, (_, i) => i + 1) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const byCat: Record<string, number> = {};
+  mockExpenses
+    .filter((e) => e.year === year && (e.month != null && months.includes(e.month)))
+    .forEach((e) => {
+      byCat[e.category] = (byCat[e.category] ?? 0) + e.amount;
+    });
+  return Object.entries(byCat).map(([name, value]) => ({ name, value }));
+}
+
+// Revenue vs expense by month (for area/line chart)
+export function getRevenueVsExpenseByMonth(year: number) {
+  const labels = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((m, i) => {
+    const rev = mockRevenue
+      .filter((r) => r.year === year && r.source === "actual" && r.month === m)
+      .reduce((s, r) => s + r.amount, 0);
+    const exp = mockExpenses
+      .filter((e) => e.year === year && e.month === m)
+      .reduce((s, e) => s + e.amount, 0);
+    return { month: m, label: labels[i], revenue: rev, expenses: exp };
+  });
+}
+
+// Revenue by property (YTD) for horizontal bar chart
+export function getRevenueByProperty(year: number, throughMonth?: number) {
+  const months = throughMonth != null ? Array.from({ length: throughMonth }, (_, i) => i + 1) : [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  return mockProperties.map((p) => {
+    const revenue = mockRevenue
+      .filter((r) => r.propertyId === p.id && r.year === year && r.source === "actual" && r.month != null && months.includes(r.month))
+      .reduce((s, r) => s + r.amount, 0);
+    return { propertyId: p.id, name: p.name, revenue };
+  });
+}

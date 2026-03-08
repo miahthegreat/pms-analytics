@@ -50,7 +50,12 @@ export function KpiCard({
         : (n: number) => n.toLocaleString();
 
   return (
-    <Card className={cn("relative overflow-hidden border-l-4 border-l-accent", className)}>
+    <Card
+      className={cn(
+        "relative overflow-hidden border-l-4 border-l-accent transition-all duration-300 hover:scale-[1.02] hover:shadow-[var(--shadow-card-hover)]",
+        className
+      )}
+    >
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           {title}
