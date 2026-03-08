@@ -50,26 +50,34 @@ export function KpiCard({
         : (n: number) => n.toLocaleString();
 
   return (
-    <Card className={cn(className)}>
+    <Card className={cn("relative overflow-hidden border-l-4 border-l-accent", className)}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        {Icon ? <Icon className="h-4 w-4 text-muted-foreground" /> : null}
+        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          {title}
+        </CardTitle>
+        {Icon ? (
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
+            <Icon className="h-5 w-5 text-accent" />
+          </span>
+        ) : null}
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{formatter(value)}</div>
+        <div className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+          {formatter(value)}
+        </div>
         {description && (
-          <p className="text-xs text-muted-foreground mt-1">{description}</p>
+          <p className="mt-1.5 text-xs text-muted-foreground">{description}</p>
         )}
         {comparison && (
           <p
             className={cn(
-              "text-xs mt-1",
-              comparison.changePct >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"
+              "mt-1.5 flex items-center gap-1 text-xs font-medium",
+              comparison.changePct >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-destructive"
             )}
           >
-            {comparison.label} {formatPercent(comparison.changePct)}
+            <span>{comparison.label} {formatPercent(comparison.changePct)}</span>
             {format === "currency" && (
-              <span className="text-muted-foreground ml-1">
+              <span className="font-normal text-muted-foreground">
                 ({comparison.change >= 0 ? "+" : ""}
                 {formatCurrency(comparison.change)})
               </span>

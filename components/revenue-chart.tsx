@@ -29,7 +29,7 @@ export function RevenueChart({ data }: RevenueChartProps) {
           tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
         />
         <ChartTooltip content={<ChartTooltipContent formatter={(v) => [`$${Number(v).toLocaleString()}`, "Revenue"]} />} />
-        <Bar dataKey="revenue" fill="var(--color-revenue)" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="revenue" fill="var(--color-revenue)" radius={[6, 6, 0, 0]} />
       </BarChart>
     </ChartContainer>
   );

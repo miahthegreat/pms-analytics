@@ -27,10 +27,12 @@ export default function DashboardPage() {
   const revenueByMonth = getRevenueByMonth(2024);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Overview</h1>
-        <p className="text-muted-foreground">
+    <div className="space-y-8">
+      <div className="space-y-1">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">
+          Overview
+        </h1>
+        <p className="text-sm text-muted-foreground">
           YTD and YoY comparisons · {new Date().getFullYear()} analytics
         </p>
       </div>
@@ -81,7 +83,7 @@ export default function DashboardPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Revenue by month (YTD)</CardTitle>
+          <CardTitle className="text-base font-semibold">Revenue by month (YTD)</CardTitle>
           <CardDescription>Actual revenue · current year</CardDescription>
         </CardHeader>
         <CardContent>

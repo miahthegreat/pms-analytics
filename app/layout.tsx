@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -27,27 +32,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${plusJakarta.variable} ${geistMono.variable} antialiased`}
       >
-        <TooltipProvider>
-          <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>
-              <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4">
-                <SidebarTrigger className="-ml-1" />
-                <div className="h-4 w-px bg-border" />
-                <span className="text-sm text-muted-foreground">
-                  Property Management Analytics
-                </span>
-              </header>
-              <main className="flex-1 overflow-auto p-4 md:p-6">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarInset>
+                <header className="flex h-14 shrink-0 items-center justify-between gap-3 border-b border-border bg-card/80 px-4 backdrop-blur-sm">
+                  <div className="flex items-center gap-3">
+                    <SidebarTrigger className="-ml-1" />
+                    <div className="h-4 w-px bg-border" />
+                    <span className="text-sm font-medium text-muted-foreground">
+                      Property Management Analytics
+                    </span>
+                  </div>
+                  <ThemeSwitcher />
+                </header>
+              <main className="flex-1 overflow-auto bg-gradient-to-b from-muted/40 to-background p-4 md:p-6">
                 {children}
               </main>
             </SidebarInset>
           </SidebarProvider>
         </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

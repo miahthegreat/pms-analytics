@@ -1,0 +1,15 @@
+---
+description: When searching the web for this project, use current stack and year
+alwaysApply: true
+---
+
+# Web search context
+
+When searching the web for documentation, examples, or solutions for this project, always use:
+
+- **Year:** 2026
+- **Next.js:** version 16
+- **Tailwind CSS:** version 4
+- **Shadcn UI:** version 4
+
+Include these in search queries when relevant (e.g. "Next.js 16 app router", "Tailwind v4", "Shadcn v4 theme") so results match our stack.

@@ -37,10 +37,13 @@ export function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarHeader className="border-b border-sidebar-border px-4 py-3">
-        <span className="font-semibold text-sidebar-foreground">
-          PMS Analytics
-        </span>
+      <SidebarHeader className="border-b border-sidebar-border px-4 py-4">
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-1 rounded-full bg-sidebar-primary" />
+          <span className="text-lg font-bold tracking-tight text-sidebar-foreground">
+            PMS Analytics
+          </span>
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -67,7 +70,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t border-sidebar-border p-2 text-xs text-muted-foreground">
+      <SidebarFooter className="border-t border-sidebar-border p-3 text-[11px] uppercase tracking-wider text-sidebar-foreground/50">
         Property Management Analytics
       </SidebarFooter>
     </Sidebar>
