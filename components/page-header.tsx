@@ -6,11 +6,11 @@ export function PageHeader({
   subtitle: string;
 }) {
   return (
-    <header className="space-y-1">
-      <h1 className="text-3xl font-bold tracking-tight text-foreground">
+    <header className="space-y-0.5 sm:space-y-1">
+      <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {title}
       </h1>
-      <p className="text-sm text-muted-foreground">
+      <p className="text-xs text-muted-foreground sm:text-sm">
         {subtitle}
       </p>
     </header>

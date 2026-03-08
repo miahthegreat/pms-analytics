@@ -19,7 +19,7 @@ interface RevenueChartProps {
 
 export function RevenueChart({ data }: RevenueChartProps) {
   return (
-    <ChartContainer config={config} className="h-[280px] w-full">
+    <ChartContainer config={config} className="h-[220px] w-full sm:h-[260px] md:h-[280px]">
       <BarChart data={data} margin={{ left: 12, right: 12 }}>
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <XAxis dataKey="label" tickLine={false} axisLine={false} />

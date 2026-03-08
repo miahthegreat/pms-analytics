@@ -52,22 +52,22 @@ export function KpiCard({
   return (
     <Card
       className={cn(
-        "relative overflow-hidden border-l-4 border-l-accent transition-all duration-300 hover:scale-[1.02] hover:shadow-[var(--shadow-card-hover)]",
+        "relative overflow-hidden border-l-4 border-l-accent transition-all duration-300 active:scale-[0.99] sm:hover:scale-[1.02] sm:hover:shadow-[var(--shadow-card-hover)]",
         className
       )}
     >
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1.5 sm:pb-2">
+        <CardTitle className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">
           {title}
         </CardTitle>
         {Icon ? (
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
-            <Icon className="h-5 w-5 text-accent" />
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 sm:h-10 sm:w-10 sm:rounded-xl">
+            <Icon className="h-4 w-4 text-accent sm:h-5 sm:w-5" />
           </span>
         ) : null}
       </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+      <CardContent className="pt-0">
+        <div className="text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl">
           {formatter(value)}
         </div>
         {description && (

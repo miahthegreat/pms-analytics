@@ -45,8 +45,8 @@ export function RevenueClient() {
   const revenueVsExpense = getRevenueVsExpenseByMonth(currentYear);
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-4 md:grid-cols-2">
+    <div className="min-w-0 space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
         <div className="animate-fade-in-up" style={stagger(60)}>
           <KpiCard
             title="Revenue YTD"
@@ -65,11 +65,11 @@ export function RevenueClient() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
         <div className="animate-chart-reveal" style={stagger(180)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Revenue by month (YTD)</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Revenue by month (YTD)</CardTitle>
               <CardDescription>Actual revenue · current year</CardDescription>
             </CardHeader>
             <CardContent>
@@ -78,9 +78,9 @@ export function RevenueClient() {
           </Card>
         </div>
         <div className="animate-chart-reveal" style={stagger(240)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Revenue vs expenses</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Revenue vs expenses</CardTitle>
               <CardDescription>Monthly trend · {currentYear}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -91,9 +91,9 @@ export function RevenueClient() {
       </div>
 
       <div className="animate-chart-reveal" style={stagger(300)}>
-        <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">Revenue by property (YTD)</CardTitle>
+        <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+          <CardHeader className="pb-2 sm:pb-6">
+            <CardTitle className="text-sm font-semibold sm:text-base">Revenue by property (YTD)</CardTitle>
             <CardDescription>Portfolio breakdown</CardDescription>
           </CardHeader>
           <CardContent>
@@ -103,12 +103,13 @@ export function RevenueClient() {
       </div>
 
       <div className="animate-fade-in-up" style={stagger(360)}>
-        <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">Revenue by property (YTD) · table</CardTitle>
+        <Card className="min-w-0 transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+          <CardHeader className="pb-2 sm:pb-6">
+            <CardTitle className="text-sm font-semibold sm:text-base">Revenue by property (YTD) · table</CardTitle>
             <CardDescription>Current vs prior YTD and change</CardDescription>
           </CardHeader>
           <CardContent className="p-0">
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -131,6 +132,7 @@ export function RevenueClient() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

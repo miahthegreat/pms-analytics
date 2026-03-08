@@ -28,8 +28,8 @@ export function UnitsClient() {
   const unitsByProperty = getUnitsByProperty();
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-4 md:grid-cols-3">
+    <div className="min-w-0 space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3">
         <div className="animate-fade-in-up" style={stagger(60)}>
           <KpiCard title="Total units" value={getUnitCount()} format="number" iconName="DoorOpen" />
         </div>
@@ -54,9 +54,9 @@ export function UnitsClient() {
       </div>
 
       <div className="animate-chart-reveal" style={stagger(240)}>
-        <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">Units by property</CardTitle>
+        <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+          <CardHeader className="pb-2 sm:pb-6">
+            <CardTitle className="text-sm font-semibold sm:text-base">Units by property</CardTitle>
             <CardDescription>Unit count per property</CardDescription>
           </CardHeader>
           <CardContent>
@@ -66,12 +66,13 @@ export function UnitsClient() {
       </div>
 
       <div className="animate-fade-in-up" style={stagger(300)}>
-        <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">All units</CardTitle>
+        <Card className="min-w-0 transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+          <CardHeader className="pb-2 sm:pb-6">
+            <CardTitle className="text-sm font-semibold sm:text-base">All units</CardTitle>
             <CardDescription>Unit-level status, rent target, and occupancy</CardDescription>
           </CardHeader>
           <CardContent className="p-0">
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -102,6 +103,7 @@ export function UnitsClient() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

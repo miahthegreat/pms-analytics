@@ -1,14 +1,12 @@
-import { PageHeader } from "@/components/page-header";
+import { PageShell } from "@/components/page-shell";
 import { RevenueClient } from "@/components/revenue-client";
 
 export default function RevenuePage() {
   return (
-    <div className="space-y-8">
-      <PageHeader
-        title="Revenue"
-        subtitle="Actuals, YTD and YoY comparisons"
-      />
-      <RevenueClient />
-    </div>
+    <PageShell title="Revenue" subtitle="Actuals, YTD and YoY comparisons">
+      <div className="space-y-8">
+        <RevenueClient />
+      </div>
+    </PageShell>
   );
 }

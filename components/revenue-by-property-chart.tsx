@@ -14,7 +14,7 @@ interface RevenueByPropertyChartProps {
 
 export function RevenueByPropertyChart({ data }: RevenueByPropertyChartProps) {
   return (
-    <ChartContainer config={config} className="h-[260px] w-full">
+    <ChartContainer config={config} className="h-[200px] w-full sm:h-[240px] md:h-[260px]">
       <BarChart data={data} layout="vertical" margin={{ left: 8, right: 12 }} barCategoryGap="20%">
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
         <XAxis type="number" tickLine={false} axisLine={false} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />

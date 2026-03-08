@@ -13,8 +13,8 @@ export function ForecastingClient() {
   const submittedCount = mockForecasts.filter((f) => f.status === "submitted").length;
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-4 md:grid-cols-3">
+    <div className="min-w-0 space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3">
         <div className="animate-fade-in-up" style={stagger(60)}>
           <KpiCard title="Locked" value={lockedCount} format="number" iconName="TrendingUp" />
         </div>
@@ -27,9 +27,9 @@ export function ForecastingClient() {
       </div>
 
       <div className="animate-fade-in-up" style={stagger(240)}>
-        <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">Forecast periods</CardTitle>
+        <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+          <CardHeader className="pb-2 sm:pb-6">
+            <CardTitle className="text-sm font-semibold sm:text-base">Forecast periods</CardTitle>
             <CardDescription>
               Q1F–Q3F: quarterly forecasts. BUDGET: full-year budget (locked at planning). Submit to mark ready for review; Lock to freeze numbers.
             </CardDescription>

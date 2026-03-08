@@ -40,14 +40,15 @@ export function ForecastingTable({ forecasts, properties }: ForecastingTableProp
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Forecast snapshots</CardTitle>
+    <Card className="min-w-0 transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+      <CardHeader className="pb-2 sm:pb-6">
+        <CardTitle className="text-sm font-semibold sm:text-base">Forecast snapshots</CardTitle>
       </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground mb-4">
+      <CardContent className="min-w-0">
+        <p className="mb-4 text-xs text-muted-foreground sm:text-sm">
           Revenue and expense totals by property per period. Use Submit to mark draft as ready; Lock to freeze (no further edits).
         </p>
+        <div className="min-w-0 overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -137,6 +138,7 @@ export function ForecastingTable({ forecasts, properties }: ForecastingTableProp
             })}
           </TableBody>
         </Table>
+        </div>
       </CardContent>
     </Card>
   );

@@ -34,24 +34,24 @@ export function OverviewClient() {
 
   if (!mounted) {
     return (
-      <div className="space-y-8">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="space-y-6 sm:space-y-8">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="h-[120px] rounded-2xl" />
+            <Skeleton key={i} className="h-[100px] rounded-xl sm:h-[120px] sm:rounded-2xl" />
           ))}
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
           {[1, 2].map((i) => (
-            <Skeleton key={i} className="h-[120px] rounded-2xl" />
+            <Skeleton key={i} className="h-[100px] rounded-xl sm:h-[120px] sm:rounded-2xl" />
           ))}
         </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Skeleton className="h-[320px] rounded-2xl" />
-          <Skeleton className="h-[320px] rounded-2xl" />
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
+          <Skeleton className="h-[240px] rounded-xl sm:h-[280px] sm:rounded-2xl" />
+          <Skeleton className="h-[240px] rounded-xl sm:h-[280px] sm:rounded-2xl" />
         </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Skeleton className="h-[320px] rounded-2xl" />
-          <Skeleton className="h-[320px] rounded-2xl" />
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
+          <Skeleton className="h-[240px] rounded-xl sm:h-[280px] sm:rounded-2xl" />
+          <Skeleton className="h-[240px] rounded-xl sm:h-[280px] sm:rounded-2xl" />
         </div>
       </div>
     );
@@ -75,8 +75,8 @@ export function OverviewClient() {
   const stagger = (ms: number) => ({ animationDelay: `${ms}ms`, animationFillMode: "backwards" as const });
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="min-w-0 space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <div className="animate-fade-in-up" style={stagger(60)}>
           <KpiCard title="Revenue (YTD)" value={revenueYtd.current} comparison={revComparison} iconName="DollarSign" />
         </div>
@@ -91,7 +91,7 @@ export function OverviewClient() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
         <div className="animate-fade-in-up" style={stagger(320)}>
           <KpiCard
             title="Occupancy"
@@ -112,11 +112,11 @@ export function OverviewClient() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
         <div className="animate-chart-reveal" style={stagger(440)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Revenue by month (YTD)</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Revenue by month (YTD)</CardTitle>
               <CardDescription>Actual revenue · current year</CardDescription>
             </CardHeader>
             <CardContent>
@@ -125,9 +125,9 @@ export function OverviewClient() {
           </Card>
         </div>
         <div className="animate-chart-reveal" style={stagger(500)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Revenue vs expenses</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Revenue vs expenses</CardTitle>
               <CardDescription>Monthly trend · {currentYear}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -139,9 +139,9 @@ export function OverviewClient() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="animate-chart-reveal" style={stagger(560)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Expenses by category (YTD)</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Expenses by category (YTD)</CardTitle>
               <CardDescription>Breakdown by category</CardDescription>
             </CardHeader>
             <CardContent>
@@ -150,9 +150,9 @@ export function OverviewClient() {
           </Card>
         </div>
         <div className="animate-chart-reveal" style={stagger(620)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Revenue by property (YTD)</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Revenue by property (YTD)</CardTitle>
               <CardDescription>Portfolio breakdown</CardDescription>
             </CardHeader>
             <CardContent>

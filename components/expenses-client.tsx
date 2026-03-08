@@ -40,7 +40,7 @@ export function ExpensesClient() {
   });
 
   return (
-    <div className="space-y-8">
+    <div className="min-w-0 space-y-6 sm:space-y-8">
       <div className="animate-fade-in-up" style={stagger(60)}>
         <KpiCard
           title="Expenses YTD"
@@ -50,11 +50,11 @@ export function ExpensesClient() {
         />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
         <div className="animate-chart-reveal" style={stagger(120)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">Expenses by category (YTD)</CardTitle>
+          <Card className="transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">Expenses by category (YTD)</CardTitle>
               <CardDescription>Breakdown by category</CardDescription>
             </CardHeader>
             <CardContent>
@@ -63,12 +63,13 @@ export function ExpensesClient() {
           </Card>
         </div>
         <div className="animate-fade-in-up" style={stagger(180)}>
-          <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-            <CardHeader>
-              <CardTitle className="text-base font-semibold">By category (YTD)</CardTitle>
+          <Card className="min-w-0 transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+            <CardHeader className="pb-2 sm:pb-6">
+              <CardTitle className="text-sm font-semibold sm:text-base">By category (YTD)</CardTitle>
               <CardDescription>Amount by category</CardDescription>
             </CardHeader>
             <CardContent className="p-0">
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -85,18 +86,20 @@ export function ExpensesClient() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </div>
       </div>
 
       <div className="animate-fade-in-up" style={stagger(240)}>
-        <Card className="transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)]">
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">By property (YTD)</CardTitle>
+        <Card className="min-w-0 transition-shadow duration-300 sm:hover:shadow-[var(--shadow-card-hover)]">
+          <CardHeader className="pb-2 sm:pb-6">
+            <CardTitle className="text-sm font-semibold sm:text-base">By property (YTD)</CardTitle>
             <CardDescription>Expenses by property</CardDescription>
           </CardHeader>
           <CardContent className="p-0">
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -113,6 +116,7 @@ export function ExpensesClient() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

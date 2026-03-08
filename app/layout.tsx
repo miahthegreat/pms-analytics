@@ -7,7 +7,6 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -44,23 +43,21 @@ export default function RootLayout({
           <TooltipProvider>
             <SidebarProvider className="h-svh min-h-0 overflow-hidden">
               <AppSidebar />
-              <SidebarInset className="min-h-0">
-                <header className="flex h-14 shrink-0 items-center justify-between gap-3 border-b border-border bg-card/80 px-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-3">
-                    <SidebarTrigger className="-ml-1" />
-                    <div className="h-4 w-px bg-border" />
-                    <span className="text-sm font-medium text-muted-foreground">
+              <SidebarInset className="min-h-0 min-w-0 overflow-hidden">
+                <header className="flex h-12 shrink-0 items-center justify-between gap-2 border-b border-border bg-card/80 px-3 backdrop-blur-sm sm:h-14 sm:gap-3 sm:px-4">
+                  <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
+                    <SidebarTrigger className="-ml-1 size-10 min-w-10 touch-manipulation sm:size-9 sm:min-w-0" />
+                    <div className="h-4 w-px shrink-0 bg-border" />
+                    <span className="truncate text-xs font-medium text-muted-foreground sm:text-sm">
                       Property Management Analytics
                     </span>
                   </div>
-                  <ThemeSwitcher />
-                </header>
-              <main className="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-muted/40 to-background">
-                <ScrollArea className="h-full min-h-0 flex-1">
-                  <div className="p-4 md:p-6">
-                    {children}
+                  <div className="shrink-0 touch-manipulation">
+                    <ThemeSwitcher />
                   </div>
-                </ScrollArea>
+                </header>
+              <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-gradient-to-b from-muted/40 to-background">
+                {children}
               </main>
             </SidebarInset>
           </SidebarProvider>

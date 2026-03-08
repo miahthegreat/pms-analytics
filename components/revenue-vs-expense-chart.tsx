@@ -15,7 +15,7 @@ interface RevenueVsExpenseChartProps {
 
 export function RevenueVsExpenseChart({ data }: RevenueVsExpenseChartProps) {
   return (
-    <ChartContainer config={config} className="h-[280px] w-full">
+    <ChartContainer config={config} className="h-[220px] w-full sm:h-[260px] md:h-[280px]">
       <AreaChart data={data} margin={{ left: 12, right: 12 }}>
         <defs>
           <linearGradient id="fillRevenue" x1="0" y1="0" x2="0" y2="1">

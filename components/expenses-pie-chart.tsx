@@ -20,7 +20,7 @@ interface ExpensesPieChartProps {
 
 export function ExpensesPieChart({ data }: ExpensesPieChartProps) {
   return (
-    <ChartContainer config={config} className="mx-auto h-[260px] w-full">
+    <ChartContainer config={config} className="mx-auto h-[200px] w-full sm:h-[240px] md:h-[260px]">
       <PieChart>
         <ChartTooltip content={<ChartTooltipContent formatter={(v) => [`$${Number(v).toLocaleString()}`, "Expenses"]} />} />
         <Pie

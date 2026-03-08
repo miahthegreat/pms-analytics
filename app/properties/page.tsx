@@ -1,14 +1,12 @@
-import { PageHeader } from "@/components/page-header";
+import { PageShell } from "@/components/page-shell";
 import { PropertiesClient } from "@/components/properties-client";
 
 export default function PropertiesPage() {
   return (
-    <div className="space-y-8">
-      <PageHeader
-        title="Properties"
-        subtitle="Portfolio properties and key metrics"
-      />
-      <PropertiesClient />
-    </div>
+    <PageShell title="Properties" subtitle="Portfolio properties and key metrics">
+      <div className="space-y-8">
+        <PropertiesClient />
+      </div>
+    </PageShell>
   );
 }
