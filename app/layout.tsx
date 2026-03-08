@@ -7,6 +7,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -33,9 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${plusJakarta.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${plusJakarta.variable} ${geistMono.variable} h-svh overflow-hidden antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -43,9 +42,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
-            <SidebarProvider>
+            <SidebarProvider className="h-svh min-h-0 overflow-hidden">
               <AppSidebar />
-              <SidebarInset>
+              <SidebarInset className="min-h-0">
                 <header className="flex h-14 shrink-0 items-center justify-between gap-3 border-b border-border bg-card/80 px-4 backdrop-blur-sm">
                   <div className="flex items-center gap-3">
                     <SidebarTrigger className="-ml-1" />
@@ -56,8 +55,12 @@ export default function RootLayout({
                   </div>
                   <ThemeSwitcher />
                 </header>
-              <main className="flex-1 overflow-auto bg-gradient-to-b from-muted/40 to-background p-4 md:p-6">
-                {children}
+              <main className="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-muted/40 to-background">
+                <ScrollArea className="h-full min-h-0 flex-1">
+                  <div className="p-4 md:p-6">
+                    {children}
+                  </div>
+                </ScrollArea>
               </main>
             </SidebarInset>
           </SidebarProvider>

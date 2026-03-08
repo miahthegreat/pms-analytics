@@ -145,3 +145,19 @@ export function getRevenueByProperty(year: number, throughMonth?: number) {
     return { propertyId: p.id, name: p.name, revenue };
   });
 }
+
+// Units per property for charts
+export function getUnitsByProperty() {
+  return mockProperties.map((p) => ({
+    name: p.name,
+    units: p.unitCount,
+    totalSqFt: p.totalSqFt,
+  }));
+}
+
+// Portfolio totals for properties page
+export function getPortfolioTotals() {
+  const totalUnits = mockProperties.reduce((s, p) => s + p.unitCount, 0);
+  const totalSqFt = mockProperties.reduce((s, p) => s + p.totalSqFt, 0);
+  return { totalUnits, totalSqFt, propertyCount: mockProperties.length };
+}

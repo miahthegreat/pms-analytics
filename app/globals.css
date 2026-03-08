@@ -158,12 +158,16 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply font-sans;
+    height: 100%;
+    overflow: hidden;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "ss01", "ss02";
-  }
-  html {
-    @apply font-sans;
+    height: 100%;
+    overflow: hidden;
   }
 }
